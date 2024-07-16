@@ -30,10 +30,64 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .photo {
+            padding: 0;
+        }
+
+        .donor {
+            padding: 0;
+        }
+
+        @media (min-width: 768px) {
+            .photo {
+                padding-left: 80px;
+                height: 330px;
+                width: 100px;
+            }
+
+            .donor {
+                text-align: justify;
+                padding-right: 80px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Notice Modal Start -->
+        <div class="modal fade" id="noticeModal" tabindex="-1" aria-labelledby="noticeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="noticeModalLabel">Notice</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img/Conclave.jpg" class="img-fluid" alt="Notice Image">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Notice Modal End -->
+
+        <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 <img src="img/logo.png" style="width: 125px; height: 70px" alt="Logo">
@@ -169,6 +223,84 @@
                 </div>
             </div>
         </div>
+        
+        <div class="container mt-5" id="resultsContainer" style="display: none;">
+            <h3 class="text-center mb-4">Blood Donors</h3>
+            <div class="row" id="results">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${donor.name}</h5>
+                        <p class="card-text"><strong>Province:</strong> ${donor.province}</p>
+                        <p class="card-text"><strong>City:</strong> ${donor.city}</p>
+                        <p class="card-text"><strong>Municipality:</strong> ${donor.municipality}</p>
+                        <p class="card-text"><strong>Blood Type:</strong> ${donor.bloodType}</p>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <!-- Search End -->
+
+
+        <!-- Category Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">What we do?</h1>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-stethoscope fa-3x text-danger mb-4"></i>
+                            <h6 class="mb-3">Blood Case Management</h6>
+                            <p class="mb-0">
+                                Blood for Nepal team is actively managing blood cases. Many patient parties face
+                                difficulties in finding
+                                donors in time.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-user-md text-danger mb-4"></i>
+                            <h6 class="mb-3">Awareness for Pregnant Women</h6>
+                            <p class="mb-0">
+                                Educating on managing blood supply before childbirth and advising the arrangement of at
+                                least four donors in advance.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-heartbeat text-danger mb-4"></i>
+                            <h6 class="mb-3">Blood Donation Program</h6>
+                            <p class="mb-0">
+                                To ensure blood availability, we organize donation programs across the country. This
+                                addresses
+                                situations where blood banks or donors are unavailable in time.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-heart text-danger mb-4"></i>
+                            <h6 class="mb-3">Blood Donation Awareness</h6>
+                            <p class="mb-0">
+                                We promote blood donation and educate people on its benefits. We also provide strategies
+                                for managing
+                                blood needs, especially for operations and deliveries.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 </body>
 
 </html>
